@@ -3,9 +3,9 @@
 This repository contains my learning notes from MIT course on Designing and Building AI Products and Services. These
 notes are self prepared to learn the course better and it is solely my work.
 
-## Module 1
+# Module 1
 
-#### Learn the basics of AI, ML, NLP and Deep learning:
+## Learn the basics of AI, ML, NLP and Deep learning:
 
 [1] Machine learning:
 
@@ -27,4 +27,12 @@ notes are self prepared to learn the course better and it is solely my work.
 - Like brain has network of neurons to learn, reasoning ect. Deep learning has neural networks
 - It has multiple layers of data processing between input and output.
 - This allows to identify the very complex PATTERNS from the data like text, images, sound or combination of all.
-- Ex: Computer vision - Face recognition; Self-driving cars ect. 
+- Ex: Computer vision - Face recognition; Self-driving cars ect.
+
+## Introduction to AI Design Process:
+
+### 4 stages of AI design process:
+
+#### [1] first stage of the AI design process: identifying the desired behavior of the AI product.
+
+- Doing so involves addressing decisions of performance metrics and scope.
