@@ -33,6 +33,45 @@ notes are self prepared to learn the course better and it is solely my work.
 
 ### 4 stages of AI design process:
 
-#### [1] first stage of the AI design process: identifying the desired behavior of the AI product.
+[1] Intelligence
+[2] Business process
+[3] AI Technology
+[4] Tinkering
 
-- Doing so involves addressing decisions of performance metrics and scope.
+#### [1] first stage of the AI design process: Identifying the desired behavior of the AI product.
+
+- Most important criteria of decisions is:
+    - performance metrics : Error rate of image recognition.
+    - scope : self-driving car. what all objects need to be recognized.
+
+- Natural Language processing:
+    - Sentiment Analysis
+    - Summarize document
+    - Summarize news
+    - Answer questions
+    - Maintain dialog
+    - Analyze Reviews like google reviews
+
+    - Sentiment analysis progress includes:
+        - Coreference resolution. Ex: Identifying the expressions referring to text.
+        - Word sense disambiguation
+        - Parsing
+
+#### [2] Business process:
+
+- Two main areas where AI can help Business processes:
+    - Strategic
+    - Operational
+
+[2.1] Strategic:
+
+- Product Layer : Use the best AI product like build best fingerprint sensor.
+- Customer Solution: Use AI product for best computer vision to incorporate in Self-driving car.
+- Network Externalities : Build a large database of users so others can be more useful. Like more fingerprints in DB
+  allows us to identify the people.
+
+[2.2] Operational:
+
+- Business process: Focus on operational process description like reduce the legal translation cost by using AI model in
+  the legal translation service.
+- Sensible Improvement targets: More measurable points like reduces the cost of translation by 80%.  
