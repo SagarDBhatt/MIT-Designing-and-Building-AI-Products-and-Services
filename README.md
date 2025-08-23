@@ -219,8 +219,9 @@ in the spreadsheet?
 
 - In cost analysis, we put 10% of total implementation cost as a contingency. Based on the experience and research I
   feel the contingency plan should be at least 20 - 30% of the total allocated budget.
-- Because the NLP integration is tricky project, it is safer to consider the upper limit of contingency plan into the
-  account.
+- I'd divide the project into iteratively development plan. I should analyse all the features and prioritize the most
+  useful ones. Also, I finalize the deliverables for the Minimum Viable Product (MVP) and based on the remaining budget,
+  I'd go for the additional features.
 
 [6] Is this plan worth funding? Why or why not?
 
