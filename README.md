@@ -228,4 +228,5 @@ in the spreadsheet?
 - Though this project performed quite analysis and prepared project development documentation, It misses out many
   important areas like model comparison and complex development cost. Also it takes very optimistic approach on the
   timeline, which considering the complex nature of the development plan is very tightly set. In addition to that,
-  contingency plan is also very optimistic and did not provide enough margins for the error. 
+  contingency plan is also very optimistic and did not provide enough margins for the error. I feel the plan is not
+  worth the funding at this point and deep re-evaluation is necessary.
