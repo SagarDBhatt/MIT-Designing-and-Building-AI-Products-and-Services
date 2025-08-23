@@ -162,9 +162,69 @@ competition might not have.
 [4.2] AI Cancers:
 
 - Adversarial attacks:
-    - Any noise in the data can creates the wrong output.
+    - Any adversarial noise in the data can create the wrong output.
     - Ex: Small stickers on stop sign can cause Self driving cars believe that stop sign is actually speed post which
       might cause issue.
 
 - Lack of generalization:
     - Translation accuracy from language A to B does not guarantee translation accuracy of language A to C.
+    - For ex: Face recognition softwares developed by Microsoft Azure OR aws has millions of face images which
+      over-trained model on images but did not consider the same image with makeup and other edits.
+
+- Bias:
+    - GPT2 had a biased responses.
+
+- Explainability:
+    - Wolf vs dogs image recognition shows biased result because wolf with snow in background and dog with home
+      background.
+
+- Unintended Behavior:
+    - Ex: Robot with AI fell down on escalator in a mall and injured other customer.
+    - NLP model gave bad advice to the customer.
+
+#### [5] Activity on Software development plan cost analysis:
+
+[1] Will the costs for integrating your virtual assistant device with an NLP align with the development costs itemized
+in the spreadsheet?
+
+- No, NLP integration with the virtual assistant is very complex project. In the cost analysis worksheet, we did NOT
+  consider the cost associate with the model fitting and accuracy testing.
+- We need to allocate the budget and resources to perform comparison analysis of the different NLP models.
+- Also need to verify the accuracy of the various models to determine which NLP models is the right solution to our
+  problem.
+
+[2] In which areas can you reduce your development costs?
+
+- I would save cost on Hardware and Network cost by going with Open AI models and API integration. This way, we do NOT
+  need to provision heavy processing GPUs and rather make the API calls to the Open AI NLP models from cloud.
+- I'd also outsourced some of the development work related to integration to offshore countries to reduce the cost of
+  software development.
+
+[3] In which areas will your development costs exceed the estimates presented in the spreadsheet?
+
+- Consider the complex nature of the NLP model integration, the labor costs might increase. There are certain unknown
+  blockers the development team might face which increases the estimated time of development and thus it increases the
+  cost.
+- Another area could be the maintenance, when the virtual assistant gets more traction with user and increases the
+  usage, it significantly consumes more GPUs utilization which end-up increasing the cost.
+
+[4] Does the spreadsheet account for the costs of your data needs?
+
+- The speadsheet mentioned about the software licensing cost but did NOT mention anything about the NLP model
+  integration cost. It should be clearly defined about the type to NLP model can be used, comparison of various models
+  to identify the optimal model and scalability of NLP model when the user base growth. Also, it did not mention the
+  token optimization to avoid paying higher for each query.
+
+[5] What is your contingency plan if you exceed your resources or allotted project development time?
+
+- In cost analysis, we put 10% of total implementation cost as a contingency. Based on the experience and research I
+  feel the contingency plan should be at least 20 - 30% of the total allocated budget.
+- Because the NLP integration is tricky project, it is safer to consider the upper limit of contingency plan into the
+  account.
+
+[6] Is this plan worth funding? Why or why not?
+
+- Though this project performed quite analysis and prepared project development documentation, It misses out many
+  important areas like model comparison and complex development cost. Also it takes very optimistic approach on the
+  timeline, which considering the complex nature of the development plan is very tightly set. In addition to that,
+  contingency plan is also very optimistic and did not provide enough margins for the error. 
