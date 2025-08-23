@@ -167,4 +167,4 @@ competition might not have.
       might cause issue.
 
 - Lack of generalization:
-    - Translation accuracy from language A to B does not guarantee translation of language A to C.
+    - Translation accuracy from language A to B does not guarantee translation accuracy of language A to C.
