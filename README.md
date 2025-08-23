@@ -230,3 +230,31 @@ in the spreadsheet?
   timeline, which considering the complex nature of the development plan is very tightly set. In addition to that,
   contingency plan is also very optimistic and did not provide enough margins for the error. I feel the plan is not
   worth the funding at this point and deep re-evaluation is necessary.
+
+#### [6] AI Cancers Activity:
+
+[1] News Article: AI can perpetuate racial bias in insurance
+underwriting (https://finance.yahoo.com/news/ai-perpetuates-bias-insurance-132122338.html)
+
+[2] Describe how your selected product or process integrates AI.
+
+- Recently, more and more Auto insurance companies rely on AI models for the insurance underwriting and predicting
+  drivers profile.
+- These models consider the parameters like acceleration, brakes, amount of driving and more. In addition to that AI
+  models also considers the zip codes where the drivers drive and frequency of driving to the particular area. It also
+  identifies the probabilities of accidents in certain areas based on the past accident data to train the AI model on
+  the process of insurance underwriting.
+
+[3] Identify the type of AI cancer that the article describes.
+
+- Article mentioned that AI model uses zip codes as a mask to identify the socioeconomic status of the person. AI give
+  biased results based on the zipcode data which passively profile the socioeconomic structure of the person.
+- This bias can be seen in terms of racially profiling the driver and predicting the underwriting of the auto insurance
+  premium.
+- This includes the principles of lack of generalization and biased behaviors.
+
+[4] Discuss how you’d prevent or mitigate the effects of AI cancer in your selected product or process.
+
+- I'd incorporate the more generalized data and parameters while training the models. This will allow the AI model to
+  avoid any biased against the race or socioeconomic factors. Also, I use un-masked parameters which nullify the proxy
+  behavior in training the model. 
