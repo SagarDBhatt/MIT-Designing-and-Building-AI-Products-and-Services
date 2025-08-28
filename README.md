@@ -257,4 +257,22 @@ underwriting (https://finance.yahoo.com/news/ai-perpetuates-bias-insurance-13212
 
 - I'd incorporate the more generalized data and parameters while training the models. This will allow the AI model to
   avoid any biased against the race or socioeconomic factors. Also, I use un-masked parameters which nullify the proxy
-  behavior in training the model. 
+  behavior in training the model.
+
+# Module 2: Artificial Intelligence Technology Fundamentals: Machine Learning.
+
+#### In this module, you'll learn how to discriminate between different machine learning algorithms. You will learn about each topic from theoretical as well as practical points of view. You'll begin with a discussion of linear classifiers and decision trees and then look at machine learning algorithms that use probabilistic approaches, such as Bayesian or regression models.
+
+#### [2.1] Machine Learning:
+
+- ML is a field of AI which allows computers to learn from data without being explicitly programmed. In other words,
+  computer identifies the patterns based on the data provided, based on this pattern machine can derive the results.
+
+- There are 3 types of ML:
+    - Supervised
+    - Semi-Supervised
+    - Unsupervised.
+
+#### [2.1.1] Supervised ML
+
+- 
