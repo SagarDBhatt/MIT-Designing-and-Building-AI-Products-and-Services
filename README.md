@@ -275,4 +275,25 @@ underwriting (https://finance.yahoo.com/news/ai-perpetuates-bias-insurance-13212
 
 #### [2.1.1] Supervised ML
 
-- 
+- In Supervised learning, ML models are trained on LABELED data. Labels are desired output of the data.
+- For Ex: ML models to identify spam OR authentic emails. Here, ML model is trained on datasets of emails which has
+  labeled emails into spam and authentic emails.
+- This helps models to analyze the pattern between spam and authentic emails. This will allow ML model to identify spam
+  emails based on pattern analysis from training labeled datasets.
+
+[A] Regression :
+
+- Common Algorithms:
+  [1] Linear Regression : Creates best fit line to predict a value based on single input variables.Ex: Predicting the
+  house price based on num of bedrooms, predicting stock price based on gdp data ext.
+  [2] Support Vector Regression: For more non-linear relationships.
+
+[B] Classification : This is used for predicting discrete categories, such as classifying an image as a cat or a dog.
+
+- Common algorithms include:
+  [1] Logistic regression: This predicts the probability of an event belonging to a specific class (often used for
+  binary classification).
+  [2] Decision trees: This creates a tree-like structure to classify data based on a series of questions about the
+  features.
+  [3] k-nearest neighbors (KNN): This classifies data points based on the labels of their nearest neighbors in the
+  training data.
