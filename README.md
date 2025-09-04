@@ -297,3 +297,9 @@ underwriting (https://finance.yahoo.com/news/ai-perpetuates-bias-insurance-13212
   features.
   [3] k-nearest neighbors (KNN): This classifies data points based on the labels of their nearest neighbors in the
   training data.
+
+[ ] Taxonomy of Machine Learning:
+
+![img.png](img.png)
+
+![img_1.png](img_1.png)
