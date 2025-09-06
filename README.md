@@ -314,3 +314,19 @@ underwriting (https://finance.yahoo.com/news/ai-perpetuates-bias-insurance-13212
   networks and more sophisticated deep neural networks.
 - Finally, you’ll reach the end of the module with an investigation into an architecture developed to deal with sequence
   data: recurrent neural networks.
+
+### [3.1] Task - Identify the application of Neural Network OR deep learning algorithm in business.
+
+- Neural Network / Deep learning Algorithm in Auto Insurance claims
+  appraisal - https://scholar.smu.edu/cgi/viewcontent.cgi?article=1181&context=datasciencereviewLinks to an external
+  site.
+
+- Neural networks and deep learning algorithms, particularly Convolutional Neural Networks (CNNs), are applicable in the
+  auto insurance industry for tasks such as claims processing, damage assessment, fraud detection, and risk modeling. A
+  paper in the SMU Data Science Review explores applying deep learning, computer vision, and neural networks to
+  automotive
+  damage appraisal, proposing a workflow combining image analysis and statistical modeling to predict claim costs.
+
+- The article indicates that this method, using an advanced neural network algorithm and techniques like Mask R-CNN, can
+  improve accuracy and efficiency, potentially cutting labor costs by half and reducing appraisal time from days to
+  hours.
