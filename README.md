@@ -303,3 +303,14 @@ underwriting (https://finance.yahoo.com/news/ai-perpetuates-bias-insurance-13212
 ![img.png](img.png)
 
 ![img_1.png](img_1.png)
+
+# Module 3 : Artificial Intelligence Technology Fundamentals: Deep Learning
+
+- Deep learning provides greater flexibility and power in building AI products. You'll begin the module with a
+  discussion of artificial neural networks and learn about its basic component: the neuron.
+- Next, you’ll explore the multi-layer perceptron — an advanced structure consisting of multiple layers of artificial
+  neural networks. You’ll also consider architectures that can be used to customize neural networks, such as
+  autoencoders, and explore various types of neural networks and their applications in the form of convolutional neural
+  networks and more sophisticated deep neural networks.
+- Finally, you’ll reach the end of the module with an investigation into an architecture developed to deal with sequence
+  data: recurrent neural networks.
