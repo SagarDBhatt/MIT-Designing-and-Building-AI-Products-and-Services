@@ -458,3 +458,114 @@ training time, which helps to prevent overfitting
 
 Transfer learning: Leveraging a pretrained model on a new, related problem — popular in deep learning where large
 datasets are required to train a model from scratch
+
+### [3.3] Single Layer VS Multi-Layer Perceptron:
+
+- A perceptron is a type of artificial neuron or a basic building block of neural networks. It was first introduced in
+  1957 by Frank Rosenblatt. The perceptron is a simple model inspired by how a single neuron in the brain works. In its
+  original form, it takes multiple binary inputs (0 or 1), each with an associated weight that determines its
+  importance. The perceptron computes a weighted sum of its inputs, adds a bias term, and then applies an activation
+  function to produce an output.
+
+![img_6.png](img_6.png)
+
+Neuron structure with dendrites, axon, and nucleus, compared to a simplified mathematical model.
+
+The output y is a weighted sum of the inputs x1, x2….xn and weights w1, w2, ….wn with a bias term x0. An activation
+function is applied to the weighted sum to produce the output y. Perceptrons were initially used for binary
+classification tasks, where they could learn to separate two classes of data that are linearly separable.
+
+Activation Functions
+
+Choosing the right activation function for a deep learning model is crucial, as it significantly affects the model's
+ability to learn complex patterns and converge during training. In the original perceptron model, the activation
+function was a simple step function that outputs 1 if the weighted sum is above a certain threshold and 0 otherwise.
+
+Sigmoid
+When to use it: The sigmoid function is primarily used in the output layer of binary classification models, where the
+goal is to predict probabilities that are mapped between 0 and 1.
+
+Why use it: It outputs values between 0 and 1, which are interpretable as probabilities.
+
+Limitation: It suffers from vanishing gradients, which makes it less ideal for deep networks with many layers.
+
+Hyperbolic Tangent (tanh)
+When to use it: Tanh is useful in hidden layers where data needs to be normalized around 0, thus aiding in faster
+convergence.
+
+Why use it: It outputs values between −1 and 1, effectively centering the data.
+
+Limitation: Like the sigmoid function, tanh also suffers from vanishing gradients in deep networks.
+
+Rectified Linear Unit (ReLU)
+When to use it: ReLU is the default choice for many types of neural networks, especially in hidden layers of deep
+networks.
+
+Why use it: It helps mitigate the vanishing gradient problem, allowing models to learn faster and perform better. ReLU
+only activates a neuron if the input is positive, which introduces nonlinearity without affecting the scale of the input
+for positive values.
+
+Limitation: ReLU suffers from the "dying ReLU" problem, where some neurons effectively die during training and stop
+outputting anything other than 0.
+
+Leaky ReLU
+When to use it: Leaky ReLU is a variant of ReLU, which is used to address the dying ReLU problem.
+
+Why use it: It allows a small, positive gradient when the unit is not active and so keeps the update alive during the
+training process.
+
+Limitation: Its effectiveness can depend significantly on the choice of the small gradient.
+
+Softmax
+When to use it: Softmax is typically used in the output layer of a multi-class classification model.
+
+Why use it: It squashes the outputs of each class into a probability distribution ranging between 0 and 1, where the sum
+of all probabilities is 1.
+
+Limitation: It is only suitable for the output layer.
+
+For practical implementation, start with ReLU for most scenarios because of its simplicity and efficiency, and then
+experiment with other functions if you encounter issues with model training or performance.
+
+For more information, refer to the resource below:
+
+Brownlee, J. (2021, January 22). How to choose an activation function for deep learning Links to an external site..
+Machine Learning Mastery: Making Developers Awesome at Machine Learning.
+
+Single-Layer Perceptron
+
+A single-layer perceptron (SLP) is a type of neural network that consists of only one layer of output nodes. It is
+typically used for binary classification problems where the classes are linearly separable. Here are some scenarios in
+which a single-layer perceptron is appropriate:
+
+Linearly separable data: If your data can be separated into two classes by a linear decision boundary, a single-layer
+perceptron can be used to learn this boundary.
+Simple binary classification: SLPs are suitable for simple binary classification tasks where you want to classify inputs
+into two categories.
+Efficiency: SLPs are computationally efficient and can be trained quickly compared to more complex models such as
+multi-layer perceptrons.
+Interpretability: The output of a single-layer perceptron can be easily interpreted since it directly reflects the
+decision boundary learned by the model.
+Memory constraints: SLPs require less memory compared to deeper neural networks, making them suitable for environments
+with limited memory resources.
+A single-layer perceptron is not suitable for a linearly nonseparable problem. A linearly nonseparable problem requires
+hidden layers in the neural network for classification. See the Python code for an XOR problem, which is linearly
+nonseparable:
+
+XOR truth table and plot demonstrating the impossibility of linear separation between classes.
+
+![img_7.png](img_7.png)
+
+Multi-Layer Perceptron
+
+A multi-layer perceptron (MLP) is a type of artificial neural network that consists of multiple layers of nodes,
+including an input layer, one or more hidden layers, and an output layer. Each node in a layer is connected to every
+node in the adjacent layers, and each connection has an associated weight. In an MLP, each node (or neuron) in the
+hidden layers and the output layer applies an activation function to the weighted sum of its inputs to produce an
+output. The most commonly used activation functions are the sigmoid, tanh, or ReLU functions. MLPs are capable of
+learning complex nonlinear relationships in data, making them suitable for a wide range of tasks, including
+classification, regression, and pattern recognition. They are trained using algorithms such as backpropagation, which
+adjusts the weights of the connections between neurons to minimize the difference between the predicted output and the
+actual output.
+
+![img_8.png](img_8.png)
