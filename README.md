@@ -330,3 +330,131 @@ underwriting (https://finance.yahoo.com/news/ai-perpetuates-bias-insurance-13212
 - The article indicates that this method, using an advanced neural network algorithm and techniques like Mask R-CNN, can
   improve accuracy and efficiency, potentially cutting labor costs by half and reducing appraisal time from days to
   hours.
+
+### [3.2] An artificial neural network (ANN) is a computer program inspired by the workings of the human brain.
+
+- As the brain uses interconnected neurons, an ANN uses artificial neurons connected in a network. Each artificial
+  neuron receives input, such as a pixel value (like handwritten numbers), and processes it to produce an output.
+- This output is passed to other neurons in the network. The strength of the connection between neurons, called weights,
+  determines the influence one neuron has on another. During training, the network adjusts these weights based on the
+  examples it receives so that it gets better at recognizing patterns in the data.
+
+![img_2.png](img_2.png)
+
+#### Basic neural network architecture with input, hidden, and output layers.
+
+- The basic parts of an ANN are:
+
+- Input layer: This is the first layer of the network, where the input data is fed into the network. Each neuron in this
+  layer represents a feature or input variable.
+
+- Hidden layers: These are layers in between the input and output layers. Each hidden layer consists of neurons that
+  perform computations on the input data. The number of hidden layers and neurons in each layer can vary depending on
+  the
+  complexity of the problem.
+
+- Weights: Each connection between neurons in adjacent layers has a weight associated with it. These weights determine
+  the
+  strength of the connection and are adjusted during the training process to improve the network's performance.
+
+- Activation function: Each neuron in the network applies an activation function to the weighted sum of its inputs. This
+  function introduces nonlinearity to the network, allowing it to learn complex patterns in the data.
+
+- Output layer: This is the final layer of the network, where the network's output is generated. The number of neurons
+  in
+  the output layer depends on the type of problem the network is solving (e.g., classification or regression).
+
+- Bias: Each neuron typically has an associated bias, which allows the network to learn the optimal decision boundaries
+  for the data.
+
+- Loss function: This function measures how well the network is performing by comparing its output to the true labels in
+  the training data. The goal of training is to minimize this loss function.
+
+- Optimizer: The optimizer is responsible for adjusting the weights of the network during training to minimize the loss
+  function. Popular optimizers include gradient descent, stochastic gradient descent (SGD), and Adam, which are used to
+  update the model's parameters based on the gradients calculated during backpropagation.
+
+- Layers connectivity: The way neurons in adjacent layers are connected can vary. In a fully connected layer, each
+  neuron is connected to every neuron in the adjacent layer.
+
+Perceptron model: inputs, weights, summation, activation, output.
+
+![img_3.png](img_3.png)
+
+Comparison Between Biological Neurons and Artificial Neurons
+
+ANNs are inspired by the structure and function of the human brain.
+
+Structure: Both human neurons and artificial neurons have a similar structure, with inputs, a processing unit, and
+outputs.
+Function: Information is passed from one neuron to another through connections.
+Learning: Both systems are capable of learning from experience. In the human brain, this involves synaptic plasticity,
+where the strength of connections between neurons is adjusted based on the patterns of activity. In ANNs, learning is
+typically achieved through algorithms that adjust the weights of connections between neurons based on the error in the
+network's predictions.
+
+Activation: Both human neurons and artificial neurons use an activation function to determine their output based on the
+inputs they receive. This allows both systems to model complex, nonlinear relationships in data.
+
+Parallel processing: Both systems are capable of parallel processing, where multiple neurons or processing units can
+perform computations simultaneously.
+
+Fault tolerance: Both systems exhibit some degree of fault tolerance. In the human brain, this is due to the redundancy
+of connections between neurons. In ANNs, this can be achieved through techniques such as dropout, which randomly removes
+connections between neurons during training to prevent overfitting.
+
+#### Step-by-Step Learning Using Gradient Descent
+
+![img_4.png](img_4.png)
+
+Neural network diagram illustrating forward and backward propagation processes.
+
+Initialize weights: Start by initializing the weights of the neural network to small random values. These weights are
+the parameters that the network will learn during training.
+Forward pass: Perform a forward pass through the network. This involves propagating the input data through the network
+to compute the output. Each neuron in the network calculates its output based on the weighted sum of its inputs and
+applies an activation function to this sum.
+Compute loss: Calculate the loss, which is a measure of how well the network's output matches the true output (the
+labels in the training data).
+Compute gradient of loss: Calculate the gradient of the loss function with respect to the weights of the network.
+Update weights: Update the weights of the network using the gradient descent algorithm. The weights are updated in the
+opposite direction of the gradient to minimize the loss.
+Repeat: Repeat steps 2–5 for a fixed number of iterations (epochs) or until the loss converges to a satisfactory level.
+Each iteration through the entire dataset is called an epoch.
+Evaluate: After training is complete, evaluate the performance of the network on a separate validation or test dataset
+to see how well it generalizes to new, unseen data.
+Adjust hyperparameters: Experiment with different hyperparameters (learning rate, number of hidden layers, number of
+neurons per layer, etc.) to improve the performance of the network.
+By iteratively updating the weights of the network using the gradient descent algorithm, the network learns to make
+better predictions and minimize the loss function, thereby improving its performance on the task it is trained for.
+
+#### Types of Activation Function Used in ANNs
+
+There are different types of activation functions used in ANNs. Some of the common ones are the following:
+
+Sigmoid: The sigmoid function is a smooth, S-shaped curve that maps input values to a range between 0 and 1. It is often
+used in the output layer of a binary classification problem, where the network needs to predict probabilities.
+Hyperbolic tangent (tanh): The tanh function is similar to the sigmoid function but maps input values to a range between
+−1 and 1. It is often used in hidden layers of the network.
+Rectified linear unit (ReLU): The ReLU function is a simple nonlinear function that returns 0 for negative inputs and
+the input value for positive inputs.
+Leaky ReLU: Leaky ReLU is similar to ReLU but allows a small, nonzero gradient for negative inputs. This helps to
+mitigate the "dying ReLU" problem, where neurons can become inactive and stop learning.
+Softmax: The softmax function is often used in the output layer of a multi-class classification problem, where the
+network needs to predict probabilities for each class. It converts the raw output values into probabilities that sum up
+to 1.
+
+![img_5.png](img_5.png)
+
+Other terminologies related to deep learning:
+
+Epoch: One complete presentation of the entire training dataset to the learning algorithm — multiple epochs are often
+required to adequately train a model
+
+Batch size: The number of training examples utilized in one iteration of model training
+
+Dropout: A regularization technique that involves randomly setting a fraction of input units to 0 at each update during
+training time, which helps to prevent overfitting
+
+Transfer learning: Leveraging a pretrained model on a new, related problem — popular in deep learning where large
+datasets are required to train a model from scratch
