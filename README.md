@@ -569,3 +569,495 @@ adjusts the weights of the connections between neurons to minimize the differenc
 actual output.
 
 ![img_8.png](img_8.png)
+
+### [3.4] Autoencoders and TensorFlow:
+
+An autoencoder is a type of artificial neural network used for unsupervised learning. It aims to learn efficient
+encoding of input data, typically for dimensionality reduction, feature learning, or data denoising. The autoencoder
+consists of two main parts: an encoder and a decoder.
+
+Encoder: The encoder takes the input data and transforms it into a compressed representation, often called a "code" or "
+latent representation."
+Decoder: The decoder takes the compressed representation from the encoder and attempts to reconstruct the original input
+data.
+The goal of training an autoencoder is to minimize the difference between the input data and the reconstructed data. By
+doing so, the autoencoder learns to capture the most important features of the input data in the compressed
+representation. Autoencoders have various applications, including image and video compression, anomaly detection, and
+generative modeling. They are a foundational concept in deep learning and can be extended and modified in many ways to
+suit different types of data and tasks.
+
+TensorFlow
+
+Autoencoders can be implemented in Python using deep learning libraries such as TensorFlow or PyTorch. TensorFlow is an
+open-source machine learning framework developed by Google. It provides a comprehensive ecosystem of tools, libraries,
+and community resources that make it easy for researchers and developers to build and deploy machine learning models.
+TensorFlow is designed to be flexible and scalable, allowing users to build models ranging from simple linear
+regressions to complex deep learning architectures. It supports both traditional machine learning and deep learning, and
+it provides APIs for several programming languages, including Python, C++, and JavaScript. One of the key features of
+TensorFlow is its ability to efficiently leverage hardware accelerators such as GPUs and TPUs, making it suitable for
+training large-scale models. It also provides tools for visualization, model serving, and deployment, making it a
+complete solution for the entire machine learning workflow.
+
+Steps for Building an Autoencoder With TensorFlow
+
+Step 1. Data Preparation: Load and preprocess the dataset. For example, for image data, you might normalize pixel values
+and reshape the images.
+
+Step 2: Model Definition: Define the architecture of the autoencoder. This includes the encoder and decoder components,
+as well as any additional layers or operations needed.
+
+Step 3: Loss Function: Define the loss function to measure the difference between the input and the output of the
+autoencoder. For example, you might use mean squared error or binary cross-entropy.
+
+Step 4: Optimizer: Choose an optimizer to minimize the loss function during training. Common choices include Adam, SGD,
+and RMSprop.
+
+Step 5: Training: Train the autoencoder using the training dataset. This involves feeding the input data through the
+model, calculating the loss, and updating the model parameters using the optimizer.
+
+Step 6: Evaluation: Evaluate the performance of the trained autoencoder using a separate validation or test dataset.
+This can involve calculating metrics such as reconstruction error or visualizing the reconstructed images.
+
+Step 7: Inference: Use the trained autoencoder for inference on new data. This involves passing new data through the
+encoder to get the encoded representation, and then through the decoder to get the reconstructed output.
+
+Python Code Using TensorFlow for an Autoencoder
+
+The necessary packages are first imported.
+
+import numpy as np
+
+import tensorflow as tf
+
+from tensorflow.keras.layers import Input, Dense
+
+from tensorflow.keras.models import Model
+
+from tensorflow.keras.datasets import mnist
+
+import matplotlib.pyplot as plt
+
+Keras is a high-level neural networks API that is used for building and training deep learning models. Keras provides a
+simple and intuitive interface for building neural networks, allowing developers to quickly prototype and experiment
+with different architectures. Keras is integrated into TensorFlow as the tf.keras module, which provides full
+compatibility with TensorFlow's ecosystem and allows users to take advantage of TensorFlow's features while using the
+Keras API.
+
+Data Preparation
+
+# Load the MNIST dataset
+
+(x_train, _), (x_test, _) = mnist.load_data()
+
+# Normalize pixel values to between 0 and 1
+
+x_train = x_train.astype('float32') / 255.
+
+x_test = x_test.astype('float32') / 255.
+
+x_train = np.reshape(x_train, (len(x_train), 28, 28, 1))
+
+x_test = np.reshape(x_test, (len(x_test), 28, 28, 1))
+
+# Flatten the images for the autoencoder
+
+x_train_flat = x_train.reshape((len(x_train), np.prod(x_train.shape[1:])))
+
+x_test_flat = x_test.reshape((len(x_test), np.prod(x_test.shape[1:])))
+
+In the data preparation phase, first the MNIST dataset is loaded. Then, it is normalized, and the images are flattened.
+This is required because of the following reasons:
+
+Normalization: Normalizing the pixel values of images (scaling them to a range between 0 and 1) helps in ensuring that
+the model trains faster and more accurately. It also makes the optimization process more stable by preventing large
+input values from dominating the learning process. Normalization helps to ensure that the model focuses on learning the
+patterns in the data rather than being sensitive to the scale of the input values.
+
+Flattening: In the case of image data, flattening refers to converting the 2D image arrays (e.g., 28x28 pixels for MNIST
+images) into 1D arrays. Flattening the images ensures that each pixel value is treated as a separate input feature by
+the model, allowing it to learn spatial patterns and relationships in the image. Flattening is used in this example
+because the autoencoder is built with fully connected (Dense) layers. Convolutional autoencoders, which are commonly
+used for image data, maintain the spatial structure and do not require flattening.
+
+Model Definition
+
+# Define the autoencoder model
+
+input_img = Input(shape=(784,))
+
+encoded = Dense(128, activation='relu')(input_img)
+
+encoded = Dense(64, activation='relu')(encoded)
+
+encoded = Dense(32, activation='relu')(encoded)
+
+decoded = Dense(64, activation='relu')(encoded)
+
+decoded = Dense(128, activation='relu')(decoded)
+
+decoded = Dense(784, activation='sigmoid')(decoded)
+
+autoencoder = Model(input_img, decoded)
+
+The architecture of the autoencoder is defined with the number of layers and the activation function. The dense function
+has different parameters. In this example, the first parameter is units. In the autoencoder, the number of units is
+typically chosen to reduce the dimensionality of the input data in the encoder and increase it back to the original
+dimensionality in the decoder. The next parameter activation uses the “Relu” activation function.
+
+Loss Function and Optimizer
+
+# Compile the model
+
+autoencoder.compile(optimizer='adam', loss='binary_crossentropy')
+
+In autoencoder models, various optimizers and loss functions can be used, depending on the specific task and the nature
+of the data. The most commonly used optimizers are Adam, stochastic gradient descent (SGD), and RMSprop.
+Different loss functions can also be used. The most popular among them are mean squared error, binary cross-entropy, and
+Kullback–Leibler divergence.
+
+Training
+
+# Train the autoencoder
+
+autoencoder.fit(x_train_flat, x_train_flat,
+
+                epochs=50,
+
+                batch_size=256,
+
+                shuffle=True,
+
+                validation_data=(x_test_flat, x_test_flat))
+
+The autoencoder fit function is used to train the model on a dataset. It includes the following parameters:
+
+Training Data: This argument represents the input data (features) that the model will be trained on. For an autoencoder,
+this would be the same dataset used for both the input and the target output.
+
+Validation Data: This argument represents the unseen data on which the model is validated.
+
+Batch Size: This argument specifies the number of samples per gradient update. This parameter controls how many samples
+are processed before the model's parameters are updated.
+
+Epochs: This argument specifies the number of epochs (iterations over the entire dataset) to train the model. One epoch
+is completed when the model has trained on each sample in the dataset once.
+
+Shuffle: By using shuffle=”True”, the training data is shuffled before each epoch. This ensures that the model sees the
+data in a different order in each epoch, which can help in generalizing better to unseen data and prevent overfitting.
+
+Encoding and Decoding
+
+# Encode and decode some digits
+
+encoded_imgs = autoencoder.predict(x_test_flat)
+
+decoded_imgs = autoencoder.predict(x_test_flat)
+
+The predict function in an autoencoder (or any other model) is used to generate output predictions for the input data.
+In the context of an autoencoder, the predict function takes an input sample, passes it through the encoder to get the
+encoded representation, and then passes the encoded representation through the decoder to reconstruct the input data.
+
+First, the input data is passed through the encoder layers of the autoencoder to get the encoded representation. This
+step compresses the input data into a lower-dimensional latent space representation.
+
+Then, the encoded representation is then passed through the decoder layers of the autoencoder to reconstruct the input
+data. The decoder tries to reconstruct the input data from the encoded representation, aiming to minimize the
+reconstruction error. The output of the predict function is the reconstructed output data, which should ideally be a
+close approximation of the original input data.
+
+Inference
+
+# Display the original and reconstructed images
+
+n = 10
+
+plt.figure(figsize=(20, 4))
+
+for i in range(n):
+
+    # Display original
+
+    ax = plt.subplot(2, n, i + 1)
+
+    plt.imshow(x_test_flat[i].reshape(28, 28))
+
+    plt.gray()
+
+    ax.get_xaxis().set_visible(False)
+
+    ax.get_yaxis().set_visible(False)
+
+ 
+
+    # Display reconstruction
+
+    ax = plt.subplot(2, n, i + 1 + n)
+
+    plt.imshow(decoded_imgs[i].reshape(28, 28))
+
+    plt.gray()
+
+    ax.get_xaxis().set_visible(False)
+
+    ax.get_yaxis().set_visible(False)
+
+plt.show()
+
+In inference, you visualize the original and reconstructed images. Matplotlib is used in this case for this
+visualization.
+
+Handwritten digits from 7, 2, 1, 6, 4, 7, 7, 9, 8, 5, 9 displayed in a grid
+
+This is the output for encoder and decoder after 50 epochs.
+
+### [3.5] Convolution Neural Network:
+
+CNNs are a class of deep neural networks, most commonly applied to analyzing visual imagery. They are highly effective
+for tasks such as image recognition, classification, and segmentation. CNNs are inspired by the organization of the
+animal visual cortex and are designed to automatically and adaptively learn spatial hierarchies of features from the
+input data.
+
+Analogy With the Visual Cortex in Animals
+
+In both animal visual cortexes and CNNs, the first stage is feature extraction. In feature extraction, the basic
+features are extracted. These can be edges, corners, or textures. The next stage is the hierarchical representation
+stage. Both systems build a hierarchical representation of visual information. In animals, this hierarchy progresses
+from simple features, such as edges, to complex features, such as shapes and objects. In CNNs, each layer learns to
+represent features at a different level of abstraction, with higher layers capturing more complex patterns based on the
+features learned by lower layers. Next is the adaptation and learning stage. Both systems are adaptive and capable of
+learning from experience. In animals, this learning occurs through exposure to the environment. In CNNs, learning occurs
+through the training process, where the network adjusts its weights based on the input data to improve its performance
+on a specific task. Last is the plasticity stage. Both systems exhibit a degree of plasticity, meaning they can adapt to
+changes in the environment or task requirements. In animals, this is reflected in the ability to learn new visual
+concepts or adapt to changes in the visual environment. In CNNs, this is achieved through retraining the network on new
+data or fine-tuning existing weights for a new task.
+
+#### Different Layers of CNNs
+
+![img_9.png](img_9.png)
+
+Architecture of a CNN: Input layer, two convolutional layers, two max-pooling layers and a fully-connected output layer
+
+CNNs typically consist of several types of layers, with each serving a different purpose in the network architecture.
+Here are the key layers commonly found in CNNs:
+
+Input Layer: This layer accepts the input data, which is typically an image or a volume of images. The input layer's
+dimensions are determined by the size and shape of the input data.
+Convolutional Layer: The convolutional layer applies convolution operations to the input data using filters (kernels).
+Each filter is slid across the input data, and the dot product of the filter and the input at each position is computed
+to produce a feature map. The convolutional layer learns to extract features from the input data, such as edges,
+textures, and shapes.
+Activation Layer: After the convolution operation, an activation function such as rectified linear unit (ReLU) is
+applied element-wise to introduce nonlinearity into the network. This allows the network to learn complex patterns and
+relationships in the data.
+Pooling Layer: The pooling layer down samples the feature maps produced by the convolutional layers. Common pooling
+operations include max pooling and average pooling, which reduce the spatial dimensions of the feature maps while
+retaining important information.
+Fully Connected Layer: Also known as a dense layer, the fully connected layer connects every neuron in the previous
+layer to every neuron in the current layer. This layer is typically used in the final stages of the network for
+classification or regression tasks, where the network outputs a prediction based on the learned features.
+Flattening Layer: Before passing the output of the convolutional/pooling layers to the fully connected layers, the
+feature maps are flattened into a vector. This allows the fully connected layers to process the features as a
+single-dimensional input.
+Normalization Layer: Sometimes, normalization layers, such as batch normalization, are used to normalize the input to a
+layer, which can improve the training speed and stability of the network.
+Output Layer: The output layer produces the final output of the network, which depends on the task the network is
+designed for. For example, in classification tasks, the output layer might use a softmax activation function to output
+probabilities for each class.
+These layers are typically stacked sequentially to form the complete CNN architecture. The specific arrangement and
+number of layers can vary based on the complexity of the task and the desired performance of the network.
+
+Python Implementation of CNNs
+
+Step 1: Import the necessary libraries.
+
+import tensorflow as tf
+
+from tensorflow.keras import layers, models
+
+CNNs are implemented using TensorFlow. First, the libraries are imported. The MNIST dataset is used in this case. The
+MNIST dataset is a large dataset of handwritten digits that is commonly used for training and testing machine learning
+models, especially in the field of computer vision. It stands for the "Modified National Institute of Standards and
+Technology" dataset, as it is a modified version of the original NIST dataset. The MNIST dataset consists of 60,000
+training images and 10,000 test images, each of which is a grayscale image of size 28x28 pixels. Each image is labeled
+with the corresponding digit it represents, ranging from 0 to 9. The MNIST dataset is widely used as a benchmark in the
+machine learning community for developing and testing algorithms for tasks such as image classification, digit
+recognition, and deep learning. Due to its relatively small size and simplicity, it is often used as a starting point
+for learning and experimenting with new machine learning techniques.
+
+Step 2: Load the MNIST data.
+
+# Load the MNIST dataset
+
+mnist = tf.keras.datasets.mnist
+
+(x_train, y_train), (x_test, y_test) = mnist.load_data()
+
+The dataset is loaded as train and test datasets.
+
+Step 3: Preprocess the data.
+
+# Preprocess the data
+
+x_train, x_test = x_train / 255.0, x_test / 255.0
+
+x_train = x_train.reshape(x_train.shape[0], 28, 28, 1)
+
+x_test = x_test.reshape(x_test.shape[0], 28, 28, 1)
+
+During preprocessing, the pixel values of the images in the dataset are normalized in the range of 0 to 1 by dividing
+the pixel value by 255. This is done to improve the convergence of the training process. The input data is then reshaped
+to make it have a single channel. In this case, the images are reshaped to have a shape of (28, 28, 1), where 28x28 is
+the image size and 1 represents the single channel grayscale.
+
+Step 4: Build the CNN model.
+
+model = models.Sequential()
+
+model.add(layers.Conv2D(32, (3, 3), activation='relu', input_shape=(28, 28, 1)))
+
+model.add(layers.MaxPooling2D((2, 2)))
+
+model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+
+model.add(layers.MaxPooling2D((2, 2)))
+
+model.add(layers.Conv2D(64, (3, 3), activation='relu'))
+
+model.add(layers.Flatten())
+
+model.add(layers.Dense(64, activation='relu'))
+
+model.add(layers.Dense(10, activation='softmax'))
+
+The first step is to create a sequential model. This is a common approach in Keras for building neural networks with a
+linear stack of layers. Next, the Conv2D layer is added. It is a fundamental building block in CNNs and plays a crucial
+role in enabling the network to learn features from input data. The Conv2D layer has several parameters that can be
+adjusted, such as the number of filters, the size of the filters, the step size of the convolution operation, and the
+padding method. These parameters affect how the convolution operation is applied and can impact the network's ability to
+learn and generalize from the data. Next, a max pooling layer with a pool size of (2, 2) is added. This down samples the
+feature maps to reduce computation. The high-level features are learned by using a dense layer with 64 units and a ReLU
+activation function. The MNIST dataset helps in classification of digits from 0 to 9. This classification is
+accomplished by using a dense layer with ten units and the softmax activation function for multi-class classification.
+
+Step 5: Compile the model.
+
+# Compile the model
+
+model.compile(optimizer='adam',
+
+              loss='sparse_categorical_crossentropy',
+
+              metrics=['accuracy'])
+
+The compile() method is called on the model object, where the optimizer, loss function, and metrics are specified. This
+step creates the computation graph for the model and prepares it for training. The optimizer used in this case is an
+“adam” optimizer, and the loss function is a “sparse_categorical_crossentropy.” The accuracy is the metric, which is
+computed here.
+
+Step 6: Train the model.
+
+# Train the model
+
+model.fit(x_train, y_train, epochs=5, validation_data=(x_test, y_test))
+
+The model is trained using the model.fit method. The parameters in this case are the training data, the test data, and
+the number of epochs.
+
+Step 7: Evaluate the model.
+
+test_loss, test_acc = model.evaluate(x_test, y_test)
+
+print(f'Test accuracy: {test_acc}')
+
+Model evaluation is a crucial step in the machine learning workflow, as it provides insights into how well the model
+generalizes to unseen data and helps assess its suitability for real-world applications. Here, the test_loss and
+test_acc values are computed using the model.evaluate function on the test dataset.
+
+CNNs have a wide range of applications, especially in computer vision. They are widely used in image classification,
+object detection, semantic segmentation, face recognition, natural language processing, and video analysis. Their
+ability to learn hierarchical features from data makes them a versatile and powerful tool in computer vision and NLP.
+
+### [3.6] Recurrent Neural Network:
+
+Recurrent neural networks (RNNs) are a type of artificial neural network designed to recognize patterns in sequences of
+data, such as text, speech, or time series. Unlike traditional feedforward neural networks, which process input data in
+a single direction, from input to output, RNNs have connections that form directed cycles, allowing them to exhibit
+dynamic temporal behavior. This enables them to maintain a memory of previous inputs, making them well-suited for tasks
+that involve sequential data. In an RNN, each neuron (or node) in the network receives input not only from the previous
+layer's neurons but also from its own previous time step, creating a feedback loop. This feedback loop allows RNNs to
+maintain a state or memory of previous inputs, which can be useful for tasks such as speech recognition, language
+modeling, and machine translation.
+
+![img_10.png](img_10.png)
+
+Sequence of nodes. Each has input X and bias h, processes through A and passes to the next node, representing an RNN.
+
+A simplified way of representing the RNN is by unfolding/unrolling the RNN over the input sequence. For example, if a
+sentence as input to the RNN has ten words, then the network would be unfolded such that it has ten neural network
+layers.
+
+#### Types of RNN
+
+![img_11.png](img_11.png)
+
+RNNs were introduced to store results of previous outputs in the internal memory. There are four types of RNN:
+
+#### Different types of sequence-to-sequence models: one-to-one, one-to-many, many-to-one, many-to-many.
+
+One-to-one: This has one input and one-p output. It has fixed input and output sizes and is commonly used in image
+classification.
+One-to-many: One-to-many is a type of RNN that expects multiple outputs on a single input given to the model. The input
+size is fixed and gives a series of data outputs. Its applications can be found in applications such as music generation
+and image captioning.
+Many-to-one: A many-to-one RNN converges a sequence of inputs into a single output by a series of hidden layers learning
+the features. Sentiment analysis is a common example of this type of RNN.
+Many-to-many: Many-to-many RNNs are used to generate a sequence of output data from a sequence of input units. The input
+and output sizes may or may not be equal. This is commonly used in machine translation.
+Different Architectures of RNNs
+
+The three most popular types of RNNs are:
+
+1. Bidirectional recurrent neural networks (BRNNs): BRNNs process input sequences in both forward and backward
+   directions,
+   allowing the network to capture information from past and future time steps simultaneously, making them especially
+   effective for tasks where context from both directions is important, such as sequence labeling or
+   sequence-to-sequence
+   tasks.
+
+![img_13.png](img_13.png)
+
+Bidirectional recurrent neural network.
+
+2. Gated recurrent units (GRUs): This is another type of RNN architecture, similar to long short-term memory (LSTM)
+   networks. GRUs combine the forget and input gates into a single "update gate," which controls how much of the past
+   information should be passed along to the future. Additionally, GRUs have a "reset gate" that helps the model decide
+   how
+   much of the past information to forget. The key difference between GRUs and LSTMs is the way they manage and use
+   their
+   memory cells.
+
+![img_14.png](img_14.png)
+
+Comparison of LSTM and GRU cell architectures with gate mechanisms and operations.
+Long short-term memory (LSTM): LSTM networks are designed to overcome the vanishing gradient problem of traditional
+RNNs, which occurs when the gradients of the loss function become very small, leading to difficulties in learning
+long-range dependencies. LSTM is useful in a variety of sequential data tasks as it is well suited for learning and
+remembering patterns over long sequences.
+For more information on GRU and LSTM, see Illustrated Guide to LSTM’s and GRU’s: A step by step explanation Links to an
+external site.
+
+Applications of RNNs
+
+Natural language processing:
+Language modeling: Predicting the next word in a sentence
+Text generation: Generating text based on learned patterns in data
+Machine translation: Translating text from one language to another
+Speech recognition: Transcribing spoken words into written text
+Time series prediction:
+Stock price forecasting: Predicting future stock prices based on historical data
+Weather forecasting: Predicting weather conditions such as temperature and humidity
+Music generation:
+Automatically composing music by learning patterns and styles from various music sequences
+Video analysis:
+Activity recognition by understanding the sequence of frames in videos
