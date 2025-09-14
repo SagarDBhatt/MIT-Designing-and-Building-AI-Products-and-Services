@@ -1061,3 +1061,86 @@ Music generation:
 Automatically composing music by learning patterns and styles from various music sequences
 Video analysis:
 Activity recognition by understanding the sequence of frames in videos
+
+# [4] Module 4: Introduction to deep learning and Generative AI
+
+### [4.1] IP and Residual Network:
+
+- Challenges of Deep Neural Networks
+
+Vanishing/Exploding gradients: As the network depth increases, gradients can become very small (vanishing) or very
+large (exploding), leading to inefficient training.
+Degradation problem: Increasing the depth of the network leads to saturation and degradation in performance.
+Optimization difficulty: Deeper networks can become harder to optimize effectively.
+Understanding Residual Networks (ResNets)
+
+Residual networks, or ResNets, are a type of deep learning model specifically designed to address the challenges of
+training very deep neural networks. They were introduced by Kaiming He and his colleagues in the 2015 paper Deep
+Residual Learning for Image Recognition Links to an external site. and have since become a cornerstone in the field of
+computer vision.
+
+Key Concepts of ResNets:
+
+Handling the degradation problem
+Problem: As neural networks become deeper, they are expected to perform better. However, in practice, deeper networks
+often suffer from higher training-error rates. This is known as the degradation problem, where adding more layers to a
+deep network can result in performance that is worse, not better.
+
+![img_15.png](img_15.png)
+
+Solution: ResNets solve this issue by introducing residual connections, which allow gradients to flow through the
+network more effectively.
+
+Residual learning
+Instead of learning the desired mapping directly, ResNet models learn the residuals, or differences, between the desired
+mapping and the input.
+
+Initially, the desired mapping is H(x). We let the networks, however, fit the residual mapping F(x) = H(x)-x, as the
+network found it easier to optimize the residual mapping rather than the original mapping.
+
+![img_16.png](img_16.png)
+
+Skip connections
+Skip connections, or shortcut connections, bypass one or more layers by connecting an earlier layer to a later layer.
+
+These connections help alleviate the vanishing-gradient problem by providing alternative paths for gradients to
+backpropagate, ensuring that the network can learn effectively, even with increased depth.
+
+![img_17.png](img_17.png)
+
+Building blocks
+Residual Block: The fundamental building block of ResNet consists of a few stacked layers and a shortcut connection that
+bypasses these layers.
+
+Architecture: A typical residual block involves two or three convolutional layers with batch normalization and ReLU
+activation, and the output of these layers is added to the block's input, forming the output of the block.
+
+![img_18.png](img_18.png)
+
+- ResNet variants
+  ResNet models come in various depths, commonly known as ResNet18, ResNet34, ResNet50, ResNet101, and ResNet152, with
+  the number representing the total number of layers.
+
+![img_19.png](img_19.png)
+
+Impact on Performance
+
+Accuracy: ResNets have significantly improved performance on challenging benchmarks such as ImageNet, leading to better
+accuracy compared with previous architectures.
+
+Training: The architecture's design allows for easier and more effective training of very deep networks, enabling models
+to achieve higher accuracy without degradation.
+
+Practical Applications of ResNets
+
+Image classification: ResNets are widely used in image classification tasks due to their ability to handle complex
+patterns and large datasets effectively.
+
+Object detection: ResNets serve as a backbone for many object detection frameworks, providing robust feature extraction
+capabilities.
+
+Image segmentation: The architecture's depth and residual connections make it suitable for tasks requiring detailed
+image segmentation.
+
+He, K., Zhang, X., Ren, S., and Sun, J. (2015) Deep residual learning for image recognition Links to an external site..
+Microsoft Research. 
