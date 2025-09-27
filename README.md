@@ -1157,3 +1157,13 @@ real-world applications of HCI that incorporate AI. You'll also learn about how 
 technologies and how to define a comfortable level of involvement when using AI products. Finally, you'll learn how to
 use AI to your advantage in order to prevent and overcome challenges and have the opportunity to design an HCI of your
 own.
+
+### Application AI in Manuafacturing:
+
+- There is a research at MIT labs that developed a material which can change the color and appearance by simply passing
+  the projection light on it.
+- They can change the color, design and apprarance so many times without any issues.
+- The application of this research is to apply (For ex) on shoes.Every day we change the design and appearance of the
+  shoes to make it look new.
+- Another example is to apply this on Car where we can change the color by simply projecting special lights on the car
+  to make it look new and changed based on preference. 
