@@ -1143,4 +1143,17 @@ Image segmentation: The architecture's depth and residual connections make it su
 image segmentation.
 
 He, K., Zhang, X., Ren, S., and Sun, J. (2015) Deep residual learning for image recognition Links to an external site..
-Microsoft Research. 
+Microsoft Research.
+
+# [6] Module 6: Designing Intelligent Human–Computer Interfaces
+
+In this module, you'll focus on the definition and analysis of human–computer interaction (HCI) by learning about the
+different interfaces, applications, and processes that define the technology. In Module 5, you learned about
+transformers and generative artificial intelligence (AI). In this module, the human element is added, with the videos
+and activities covering the techniques, application areas, benefits, and drawbacks of HCI.
+
+In addition, you'll become familiar with the top conferences that address the latest HCI technologies and examine
+real-world applications of HCI that incorporate AI. You'll also learn about how to stay on track with the latest HCI
+technologies and how to define a comfortable level of involvement when using AI products. Finally, you'll learn how to
+use AI to your advantage in order to prevent and overcome challenges and have the opportunity to design an HCI of your
+own.
