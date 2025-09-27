@@ -1160,10 +1160,34 @@ own.
 
 ### Application AI in Manuafacturing:
 
-- There is a research at MIT labs that developed a material which can change the color and appearance by simply passing
+- There is a research at MIT labs that developed a material (photochromic dye) which can change the color and appearance
+  by simply passing
   the projection light on it.
 - They can change the color, design and apprarance so many times without any issues.
 - The application of this research is to apply (For ex) on shoes.Every day we change the design and appearance of the
   shoes to make it look new.
 - Another example is to apply this on Car where we can change the color by simply projecting special lights on the car
-  to make it look new and changed based on preference. 
+  to make it look new and changed based on preference.
+
+- Google's Smart Compose feature in Gmail uses AI prediction to offer word and phrase suggestions as users type, thereby
+  advancing human-computer interaction. By analyzing context with large-scale language models trained on anonymized
+  data,
+  it generates personalized, non-intrusive suggestions that are easily accepted with a keystroke. This reduces typing
+  effort and speeds up communication, making the interface more efficient and user-centered without compromising
+  privacy.
+
+- [1] What type of AI is used?
+- Smart Compose is powered by a neural language model. It reportedly employs a hybrid model that combines bag-of-words
+  encoding with a recurrent neural network (RNN) language model.
+
+
+- [2] Does the AI integration create a better or worse interface?
+- The AI integration is generally seen as a positive enhancement. It improves the interface by reducing user effort,
+  increasing composition speed, and lowering cognitive load. Suggestions are offered in a non-disruptive way, ensuring
+  users retain control.
+
+
+- [3] Does AI contribute to development efficiency?
+- Yes, AI contributes to development efficiency for both the user and the developer. For users, it quickens the writing
+  process. For developers, it allows them to use pre-trained language models instead of manually coding auto-complete
+  rules, which leads to faster scaling and continuous improvement as the model learns.
